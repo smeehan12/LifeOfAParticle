@@ -1,0 +1,104 @@
+
+\documentclass[12pt]{article}
+%	options include 12pt or 11pt or 10pt
+%	classes include article, report, book, letter, thesis
+
+\usepackage[margin=0.5in]{geometry}
+
+\setlength{\parindent}{0pt}
+
+\usepackage{hyperref}
+
+%for writing of code in blocks like
+%\begin{lstlisting}
+%   .......
+%\end{lstlisting}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{enumitem}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C++,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Life of a Particle : Quiz 1}
+\author{Sam Meehan}
+\date{Due Date : 5 January 2017}
+
+\begin{document}
+\maketitle
+
+
+\textbf{Guidelines} 
+\newline
+Choose one of the two tasks below.
+\newline
+\newline
+For many common tasks, there are built in functions already existing in python, or which can be imported from the \small{\ttfamily{math}} or \small{\ttfamily{numpy}} modules.  In particular, the ones you may have used before are \small{\ttfamily{min(LIST)}}, \small{\ttfamily{max(LIST)}}, \small{\ttfamily{sum(LIST)}}, \small{\ttfamily{len(LIST)}}.  However, these are not necessary for ``good'' programmers.  Nearly all programs can be written using the following small set of operations 
+\begin{itemize}[noitemsep]
+\item $+$ (add)
+\item $*$ (multiply
+\item $/$ (divide)
+\item $=$ (assignment)
+\item $==$ (equals comparison)
+\item $<$ (less than comparison)
+\item $>$ (greater than comparison)
+\end{itemize}
+In addition to these operators, it is taken for granted in programming that you can use the following features as well
+\begin{itemize}[noitemsep]
+\item variables and lists - for storing the initial dataset
+\item for loops
+\item if statements
+\item print statements - for viewing your code
+\end{itemize}
+In this quiz, these are the only things that may appear.   If you determine that you absolutely need some other function or operator, then include a comment clearly describing why this is the case.
+\newline
+Finally, you are not allowed to ``hard code'' in your program, meaning that there cannot be code that you must manually change each time you run it.  An example of this is the length of a list.  If I have a list \textit{[1,4,2,5,3,6]}, and you want to use the number of items in the list in your code, then the number ``6'' may not appear in your code.  
+\newline
+\newline
+\textbf{Task 1}
+\newline
+If I give you an integer \textit{Q}, write a single program that finds the average of all of the integers between \textit{0} and that integer \textit{Q}, including \textit{Q} itself.  Be sure that your code works for both positive and negative values of \textit{Q}.
+\newline
+\newline
+\textbf{Task 2}
+\newline
+Given this set of data (you can copy and paste it into an array if you like)
+\newline
+\newline
+[71, 51, 32, 62, 84, 109, 43, 92, 72, 41, 102, 80, 72, 69, 46, 94, 52, 95, 90, 72, 63, 70, 34, 80, 78, 34, 31, 37, 26, 41, 42, 107, 33, 108, 108, 75, 66, 23, 90, 53, 24, 70, 26, 41, 93, 24, 71, 39, 48, 66, 97, 107, 77, 71, 67, 39, 38, 107, 96, 92, 84, 46, 60, 95, 87, 90, 92, 63, 78, 78, 84, 107, 70, 108, 32, 36, 93, 108, 49, 72, 56, 43, 30, 56, 51, 97, 45, 92, 40, 43, 49, 83, 98, 28, 99, 97, 102, 89, 58, 87]
+\newline
+\newline
+write a program in python which computes the (i) \textit{maximum value} and the (ii) \textit{minimum value}.
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
