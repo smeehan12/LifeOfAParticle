@@ -1,0 +1,117 @@
+
+\documentclass[12pt]{article}
+%	options include 12pt or 11pt or 10pt
+%	classes include article, report, book, letter, thesis
+
+\usepackage[margin=0.5in]{geometry}
+
+\setlength{\parindent}{0pt}
+
+\usepackage{hyperref}
+
+%for writing of code in blocks like
+%\begin{lstlisting}
+%   .......
+%\end{lstlisting}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{enumitem}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C++,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Life of a Particle : Assignment 1}
+\author{Sam Meehan}
+\date{Due Date : 6 January 2017}
+
+\begin{document}
+\maketitle
+
+\textbf{How to Submit}
+\newline
+This assignment should be submitted by replying to the email sent out requesting its submission.  In the future, we will use GitHub, but not for this assignment.  You should include a single PDF file that has any verbal description of the answers to the questions, along with description of what computer code files go with which question.  Please bundle this all into a single tarball and submit this one tarball file.  
+
+\textbf{The Stern Gerlach Simulator} 
+\newline
+Obtain the Stern Gerlach simulation code from the course website - \href{https://sites.google.com/a/aims.edu.gh/the-life-of-a-particle/home}{AIMS - Life of a Particle}.  You may have to search around on the website a bit to find it (Hint : Look for something having to do with ``Assignments'') but nothing in real research is clear cut so finding it is part of the assignment.  You should find four files :
+\begin{itemize}[noitemsep]
+\item \small{\ttfamily{SternGerlach\_v0.py}} : This is the one we looked at in class which gives incorrect results as compared to the actual experiment for the first \textit{z}-apparatus.
+\item \small{\ttfamily{SternGerlach\_v1.py}}
+\item \small{\ttfamily{SternGerlach\_v2.py}}
+\item \small{\ttfamily{SternGerlach\_v3.py}}
+\end{itemize}
+With this code, do the following
+\begin{enumerate}
+\item Execute the code and include as part of your assignment the output \small{\ttfamily{.eps}} files that are produced. \textit{BONUS} points if you modify the style of the histograms before they are drawn to remove the statistics box, increase the font size on the axes, make it so that the labels and axis numbers don't overlap, and change the color of the histograms.
+\item Determine which of the pieces of code produces the results observed in the actual Stern Gerlach experiment.  Describe how you know this and how the other pieces of code fail. (It will probably be easier to complete this task *after* commenting the code)
+\item Comment all four pieces of code and include them in the submission.  Be sure to include a header at the top with your name and email address so that someone can contact you with a question.  Beyond this, commenting code itself is difficult and can be overdone.  Follow this guide (\href{https://www.digitalocean.com/community/tutorials/how-to-write-comments-in-python-3}{Link to Python Commenting Guide}) to get a sense of how to comment your code well.
+\end{enumerate}
+
+\newpage
+
+\textbf{The Coach and the Player}
+\newline
+Imagine that you are a \href{https://en.wikipedia.org/wiki/Consultant}{consultant} who has been hired by an aspiring football coach.  The football coach has arrived at AIMS Ghana and every morning he looks out his window and sees two people on the beach, another coach and a player.  The coach has a bag of \href{http://www.mms.com/}{M\&M's} and a six-sided die.  He is clearly going to be training the player.  You notice that he makes the player run sprints using the following procedure :
+\begin{itemize}[noitemsep]
+\item He rolls the dice once and gives the player the number of M\&M's in the bag.  
+\item He rolls the dice another time and tells the player to run at that speed for one second.
+\item The player runs for one second at the speed he was told.
+\end{itemize}
+This continues on until the coach rolls the dice and there are not as many M\&M's in the bag as the dice indicates he should give the player.  At this point, the player takes the rest of the M\&M's, the coach rolls the dice one more time to obtain the speed of the player, and the player runs.  You have seen this for three mornings thus far and have observed that the players distance for those three days is $22$~m, $19$~m, and $40$~m.  
+\newline
+\newline
+This training procedure seems effective so the football coach has hired you to figure out how many M\&M's are in the bag.  He wants to purchase the same amount of M\&M's and execute the same training regimen.  He also doesn't want to buy a huge amount of M\&M's and overtrain his players, so providing him with an accurate estimate of the number of M\&M's is important.
+\newline
+\newline
+Your goal is to provide the coach with this estimate.
+\newline
+\newline
+To help, he has provided you with a set of observations for the distance the player runs each morning over the course of the next 1000 days\footnote{Ok, fine fine, so he had to wait almost three years to accumulate this data, let's pretend ...}.  These observations can be found on the course website (again, you'll have to search for it).
+\newline
+\newline
+You will have to provide justification for how you arrived at your conclusion in the form of a program that shows your analysis.  You will have to construct a program with a partner and work together to submit a single assignment as described at the top.  Your PDF file should include an easy to use set of directions which clearly guides me and the tutors through the steps to obtain your project by running the code.  It should also describe what output to expect to be printed to the terminal and whether it produces any plots.
+\newline
+\newline
+In addition to the program, provide a written analysis of your findings (like a paragraph) describing how you arrived at the conclusion and supporting evidence (perhaps your algorithmic workflow) that will convince me as the apsiring coach that your estimate is accurate and that I should hire you in the future.
+
+\newpage
+\textbf{BONUS}
+\newline
+From \href{https://projecteuler.net}{Project Euler}, describe the procedure or algorithm that you would use to solve \href{https://projecteuler.net/problem=2}{question 2}.
+\newline
+\newline
+``Each new term in the Fibonacci sequence is generated by adding the previous two terms. By starting with 1 and 2, the first 10 terms will be:
+\begin{center}
+1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
+\end{center}
+By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.''
+
+
+
+
+
+
+
+
+
+
+\end{document}
