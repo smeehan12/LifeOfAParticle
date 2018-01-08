@@ -1,0 +1,219 @@
+
+\documentclass[12pt]{article}
+%	options include 12pt or 11pt or 10pt
+%	classes include article, report, book, letter, thesis
+
+\usepackage[margin=0.5in]{geometry}
+
+\setlength{\parindent}{0pt}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+%for writing of code in blocks like
+%\begin{lstlisting}
+%   .......
+%\end{lstlisting}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{enumitem}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C++,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Life of a Particle : Assignment 2}
+\author{Sam Meehan}
+\date{Due Date : 13 January 2017}
+
+\begin{document}
+\maketitle
+
+\textbf{How to Submit}
+\newline
+This assignment should be submitted by replying to the email sent out rby the tutors - \textbf{Use the online form!} - with the link to your GitHub repository.  Contained within this repository should be a \href{https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet}{markdown README.md} file which provides a guide to the contents of the repository, along with instructions of how to run the code, where necessary.  For some of the questions, you will need to write an extended answers (not just code), so your repository should also include your latex file and the compiled PDF document.  
+\newline
+\newline
+
+\textbf{Coding Like a \href{https://www.urbandictionary.com/define.php?term=hipster}{Hipster} - (Just Directions)} 
+\newline
+You don't need to do any work here, these are just directions.  
+\newline
+\newline
+For many common tasks, there are built in functions already existing in python, or which can be imported from the \small{\ttfamily{math}} or \small{\ttfamily{numpy}} modules.  In particular, the ones you may have used before are \small{\ttfamily{min(LIST)}}, \small{\ttfamily{max(LIST)}}, \small{\ttfamily{sum(LIST)}}, \small{\ttfamily{len(LIST)}}.  However, these are not necessary for ``good'' programmers.  Nearly all programs can be written using the following small set of operations 
+\begin{itemize}[noitemsep]
+\item $+$ (add)
+\item $*$ (multiply
+\item $/$ (divide)
+\item $=$ (assignment)
+\item $==$ (equals comparison)
+\item $<$ (less than comparison)
+\item $>$ (greater than comparison)
+\end{itemize}
+In addition to these operators, it is taken for granted in programming that you can use the following features as well
+\begin{itemize}[noitemsep]
+\item variables and lists - for storing the initial dataset
+\item for loops
+\item if statements
+\item print statements - for viewing your code
+\end{itemize}
+In this quiz, these are the only things that may appear.   If you determine that you absolutely need some other function or operator, then include a comment clearly describing why this is the case.
+\newline
+\newline
+Finally, you are not allowed to ``hard code'' in your program, meaning that there cannot be code that you must manually change each time you run it.  An example of this is the length of a list.  If I have a list \textit{[1,4,2,5,3,6]}, and you want to use the number of items in the list in your code, then the number ``6'' may not appear in your code.  
+\newline
+\newline
+
+\newpage
+\textbf{Standard Deviation Like a Hipster}
+\newline
+For this question, follow the directions to code like a ``hipster''.  Note that you can use the ROOT package to make histograms or graphs if you like.
+\newline
+\newline
+Given a set of numbers $Q$ (example $Q=$[2,3,4,2]), write a program which calculates the standard deviation of this set.  For the purposes here, the definition of the standard deviation of a set of numbers is
+\begin{displaymath}
+\sigma(Q)=\sqrt{\frac{\displaystyle\sum_{i=0}^{N-1} (x_{i}-x_{avg})^2}{N}} 
+\end{displaymath}
+\begin{displaymath}
+x_{avg}=\displaystyle\sum_{i=0}^{N-1} (x_{i})
+\end{displaymath}
+\begin{displaymath}
+N=N(Q)
+\end{displaymath}
+\newline
+
+\newpage
+\textbf{Numerical Integration Like a Hipster} 
+\newline
+For this question, follow the directions to code like a ``hipster''.  Note that you can use the ROOT package to make histograms or graphs if you like.
+\newline
+\newline
+One of the most powerful tools in math is the integral.  In particular, this is powerful because it can be used to compute the area under a curve, a concept which can be generalized to refer to volumes or more complicated quantities, like the amount of work performed on a particle by an electric field as the particle moves through a trajectory.  One typically learns to compute (definite) integrals as
+\begin{displaymath}
+I_{y(x)}(a,b)=\displaystyle\int_{a}^{b} x^n dx = \frac{x^{n-1}}{n-1}|_{x=a}^{x=b} =  \frac{1}{n-1}(b^{n-1}-a^{n-1})
+\end{displaymath}
+and this can be used to compute more complicated integrals like
+\begin{displaymath}
+I_{y(x)}(a,b)=\displaystyle\int_{a}^{b} y(x) dx 
+\end{displaymath}
+However, there is another method to compute the definite integral $I$ computationally called a \textit{Riemann Sum}.  Graphically, it proceeds as shown in Figure~\ref{fig:riemann}.  The integral is \textbf{approximated} by a sum of the are of the rectangles of some width ($\Delta x$) with a height equal to $y(x_{eval})$ where $y(x_{eval})$ can be evaluated at the (i) left, (ii) right, or (iii) middle of the rectangle.  In this case, the value of the integral is
+\begin{displaymath}
+I_{y(x)}(a,b)\sim \displaystyle\sum_{i=0}^{N-1} y(x_{i})\times(x_{i+1}-x_{I})=\displaystyle\sum_{i=0}^{N-1} y(x_{i})\times\Delta x
+\end{displaymath}
+Now, typically (but not necessarily) the value of $\Delta x$ is fixed and taken to be $\Delta x=\frac{b-a}{N}$.  Now, if you remember integral calculus, then you will remember that
+\begin{displaymath}
+ \displaystyle\lim_{N\to\infty} \displaystyle\sum_{i=0}^{N-1} y(x_{i})\times\Delta x = \displaystyle\int_{a}^{b} y(x) dx 
+\end{displaymath}
+Therefore, we can calculate the integral by writing a piece of code that performs this definite sum!  So, the task is to write a piece of python code which performs the integral of $y(x)=3x^3-4x^2+3.2198x$ from $a=1$ to $b=9$.  Perform this calculation analytically and then perform it numerically using your code for $N=$[10,50,100,200].  How close does this approximation approach to the analytic result.
+\begin{figure}[h!]
+  \center
+  \includegraphics[width=0.5\linewidth]{riemann}
+  \caption{An illustration of the Riemann sum used to approximate the integral of the function $y(x)$ (the red curve) from $x=$0 to $x=$2.  In this case, the step size $\Delta x$ is taken to be 0.25 and the function $y(x)$ is evaluated at the center point of each interval.}
+  \label{fig:riemann}
+\end{figure}
+
+\newpage
+\textbf{Fitting a Line} 
+\newline
+For this question, follow the directions to code like a ``hipster''.  Note that you can use the ROOT package to make histograms or graphs if you like.
+\newline
+\newline
+One procedure that is used regularly in computational modelling is that of ``fitting''.  This itself is a very broad topic and here we will implement one of the more basic procedures called the \href{https://en.wikipedia.org/wiki/Least_squares}{``minimization of least squares''}.  To make this concrete, let's pretend that you have measurements of a particles position at equal time intervals and obtain the following measurements :
+\begin{center}
+\begin{tabular}{ c|c } 
+ x [m] & y [m] \\ \hline
+ 1.0 & 0.5 \\ 
+ 2.2 & 1.1 \\ 
+ 3.0 & 1.3 \\
+ 3.9 & 2.1 \\
+ 4.8 & 2.6 \\
+\end{tabular}
+\end{center}
+Now, you have a good reason to believe that this particle is moving on a straight line path, but your eyesight is not good and if you plot these points on a scatter plot, they don't seem to be perfectly along a straight line.  Nonetheless, you would like to determine the functional form of the path followed by the particle, which you know to be $y=f(x;m,b)=m\times x+b$.  To do this, you can use the ``minimization of least squares'' as follows :
+\begin{itemize}
+\item Choose values for the parameters $(m,b)$
+\item Calculate the value of the fit error which equals $S=\displaystyle\sum_{points} (f(x_{i})-y_{i})^{2}$ as represented graphically in Figure~\ref{fig:fit}.
+\item Make a list which matches a single choice of $(m,b)$ to a value of $S$ and fill it with many $(m,b,S)$ choices
+\item Find the entry in this list of $(m,b,S)$ which has the smallest value of $S$.  The corresponding $(m,b)$ values are what we call the ``best fit'' values of the parameters of our models.
+\end{itemize}
+Use this procedure to determine the best fit values of the line which describes the data you observed and create a plot of the data points and your best fit line.
+
+\begin{figure}[h!]
+  \center
+  \includegraphics[width=0.7\linewidth]{fit}
+  \caption{An illustration of the procedure to minimize the fit error and thereby determine the model parameters $m$ and $b$ that best describe our data.}
+  \label{fig:fit}
+\end{figure}
+
+\newpage
+\textbf{Gaussian Random Numbers} 
+\newline
+For this question, you may import the \href{https://docs.python.org/2/library/random.html}{python random library}.  However, you may only use the \href{https://docs.python.org/2/library/random.html#random.random}{random.random()} function call which generates a uniformly distributed random number between [0,1.0).
+\newline
+\newline
+Starting from a set of uniformly distributed random numbers from [0,1.0) (Don't be a hipster, use python for this!) generate a set of 10000 random numbers according to a \href{https://en.wikipedia.org/wiki/Gaussian_function}{Gaussian distribution} of mean $\mu=2.0$ and width $\sigma=1.4$.  As a reminder, the Gaussian distribution is also called the ``normal distribution'' and has the following functional form :
+\begin{displaymath}
+ Gauss(x;\mu,\sigma)=\frac{1}{\sigma\sqrt{2\pi}}Exponential[-\frac{1}{2} (\frac{x-\mu}{\sigma})^{2}]
+\end{displaymath}
+where $Exponential[a]=e^{a}$
+
+\newpage
+\textbf{Modelling the Particle In a Box} 
+\newline
+We discussed at great length the solution of the Schrodinger equation for the case of a particle in a one-dimensional box with sides at $x=$0 and $x=$a (Go review \href{http://www.fisica.net/mecanica-quantica/Griffiths\%20-\%20Introduction\%20to\%20quantum\%20mechanics.pdf}{Griffith's QM - Chapter 2.2} if you are not sure of how the calculation proceeds.).  This is the model by which we want to describe a particle, namely the answer to the question ``Where is the particle?''.  This will be done using the wave function $\Psi(x,t)$ of the particle, which itself may be complex valued as is composed as a linear superposition of the eigenfunctions 
+\begin{displaymath}
+ \Psi(x,t)=\displaystyle\sum_{n=0}^{\infty} c_{n}  \phi_{n}(t)  \psi_{n}(x) = \displaystyle\sum_{n=0}^{\infty} c_{n}  e^{-\frac{i}{\hbar}E_{n}t} sin(\frac{n\pi}{a}x)
+\end{displaymath}
+However, the probability rule, which will be a function describing the PDF $P(x)$ of the location of the particle, must be a real valued function from which a single event (a single collapse of the wave function) can be viewed as the generation of a single number from this distribution $P(x)$.  Therefore, we must translate this complex function into a real-valued function.  Two reasonable ways to do this are as follows :
+\begin{itemize}
+\item Square Then Sum : Take the square modulus of each of the eigenfunctions and then add these squared terms.
+   \begin{itemize}
+     \item $P_{A}(x,t)=\displaystyle\sum_{n=0}^{\infty}  c_{n}  \phi_{n}(t)  \psi_{n}(x) c_{n}^{*}  \phi_{n}^{*}(t)  \psi_{n}^{*}(x) $
+   \end{itemize}
+\item Sum Then Square : Add the individual eigenfunctions and then take the square modulus of this sum.
+   \begin{itemize}
+     \item $P_{B}(x,t)=\displaystyle\sum_{n=0}^{\infty}  c_{n}  \phi_{n}(t)  \psi_{n}(x) \times \displaystyle\sum_{m=0}^{\infty}  c_{m}^{*}  \phi_{m}^{*}(t)  \psi_{m}^{*}(x)$
+   \end{itemize}
+\end{itemize}
+
+If you are feeling overwhelmed looking at these equations,its alright, we are going to deal with a simplified system.  Let's imagine that we know that the particle is initially placed in the box in a state $\Psi(x,t)$ which is only composed of the $E_1$ and $E_2$ eigenstates.  So the wave function is simply 
+\begin{displaymath}
+\Psi(x,t)=c_{1}\phi_{1}(t)\psi_{1}(x)+c_{2}\phi_{2}(t)\psi_{2}(x)
+\end{displaymath}
+First, describe how these two different possibly probability rules differ (if they do) qualitatively?  Is there time dependence to one of the probability rules?  What if you set $t=$0, meaning that the observation is made immediately after you put the particle in the box?  Does the time dependence go away?
+\newline
+\newline
+For this simplified system, you have been provided with a set of 5000 data measurements (included on the assignment page).  Your goal is to determine which one of these two probabily rule transformations $P_{A}$ or $P_{B}$ is the one that really occurs in nature.  To this end, you should probably start by examining the data, either by using descriptive statistics, or maybe making a histogram.  Can you observe anything about the data just from this?  Now try to generate a predictive set of data according to the two different models that you have for the probability, assuming that the measurements being made are performed immediately at $t=$0.  To fully describe the model, there are therefore two separate questions to answer
+\begin{itemize}[noitemsep]
+\item What is the probability rule that comes from nature?
+\item What are the coefficients $c_1$ and $c_2$? (To make things less involved, pretend that we know that $c_1$ and $c_2$ are positive and between [$0,1$].)
+\end{itemize}
+To go about this, we will need a way to compare your ensemble of predictions to that of the observations.  This can be done by first casting the obervations or predictions in the form of two histograms ($p$ and $o$) and then performing a calculation of the $\chi^{2}$ of these two histograms where
+\begin{displaymath}
+\chi^{2}=\displaystyle\sum_{i \in bins(p,o)} \frac{(p_{i}-o_{i})^2}{\sigma_{p_{i}}^{2}+\sigma_{o_{i}}^{2}}
+\end{displaymath}
+and ($p_{i}$, $o_{i}$) is the bin content of $p$ and $o$ at bin $i$ and($\sigma_{p_{i}}$, $\sigma_{o_{i}}$) are the corresponding errors on these bins.
+
+
+
+
+
+\end{document}
