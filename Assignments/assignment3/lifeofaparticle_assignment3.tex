@@ -1,0 +1,36 @@
+\newpage
+\textbf{Modelling the Particle In a Box} 
+\newline
+We discussed at great length the solution of the Schrodinger equation for the case of a particle in a one-dimensional box with sides at $x=$0 and $x=$a (Go review \href{http://www.fisica.net/mecanica-quantica/Griffiths\%20-\%20Introduction\%20to\%20quantum\%20mechanics.pdf}{Griffith's QM - Chapter 2.2} if you are not sure of how the calculation proceeds.).  This is the model by which we want to describe a particle, namely the answer to the question ``Where is the particle?''.  This will be done using the wave function $\Psi(x,t)$ of the particle, which itself may be complex valued as is composed as a linear superposition of the eigenfunctions 
+\begin{displaymath}
+ \Psi(x,t)=\displaystyle\sum_{n=0}^{\infty} c_{n}  \phi_{n}(t)  \psi_{n}(x) = \displaystyle\sum_{n=0}^{\infty} c_{n}  e^{-\frac{i}{\hbar}E_{n}t} sin(\frac{n\pi}{a}x)
+\end{displaymath}
+However, the probability rule, which will be a function describing the PDF $P(x)$ of the location of the particle, must be a real valued function from which a single event (a single collapse of the wave function) can be viewed as the generation of a single number from this distribution $P(x)$.  Therefore, we must translate this complex function into a real-valued function.  Two reasonable ways to do this are as follows :
+\begin{itemize}
+\item Square Then Sum : Take the square modulus of each of the eigenfunctions and then add these squared terms.
+   \begin{itemize}
+     \item $P_{A}(x,t)=\displaystyle\sum_{n=0}^{\infty}  c_{n}  \phi_{n}(t)  \psi_{n}(x) c_{n}^{*}  \phi_{n}^{*}(t)  \psi_{n}^{*}(x) $
+   \end{itemize}
+\item Sum Then Square : Add the individual eigenfunctions and then take the square modulus of this sum.
+   \begin{itemize}
+     \item $P_{B}(x,t)=\displaystyle\sum_{n=0}^{\infty}  c_{n}  \phi_{n}(t)  \psi_{n}(x) \times \displaystyle\sum_{m=0}^{\infty}  c_{m}^{*}  \phi_{m}^{*}(t)  \psi_{m}^{*}(x)$
+   \end{itemize}
+\end{itemize}
+
+If you are feeling overwhelmed looking at these equations,its alright, we are going to deal with a simplified system.  Let's imagine that we know that the particle is initially placed in the box in a state $\Psi(x,t)$ which is only composed of the $E_1$ and $E_2$ eigenstates.  So the wave function is simply 
+\begin{displaymath}
+\Psi(x,t)=c_{1}\phi_{1}(t)\psi_{1}(x)+c_{2}\phi_{2}(t)\psi_{2}(x)
+\end{displaymath}
+First, describe how these two different possibly probability rules differ (if they do) qualitatively?  Is there time dependence to one of the probability rules?  What if you set $t=$0, meaning that the observation is made immediately after you put the particle in the box?  Does the time dependence go away?
+\newline
+\newline
+For this simplified system, you have been provided with a set of 5000 data measurements (included on the assignment page).  Your goal is to determine which one of these two probabily rule transformations $P_{A}$ or $P_{B}$ is the one that really occurs in nature.  To this end, you should probably start by examining the data, either by using descriptive statistics, or maybe making a histogram.  Can you observe anything about the data just from this?  Now try to generate a predictive set of data according to the two different models that you have for the probability, assuming that the measurements being made are performed immediately at $t=$0.  To fully describe the model, there are therefore two separate questions to answer
+\begin{itemize}[noitemsep]
+\item What is the probability rule that comes from nature?
+\item What are the coefficients $c_1$ and $c_2$? (To make things less involved, pretend that we know that $c_1$ and $c_2$ are positive and between [$0,1$].)
+\end{itemize}
+To go about this, we will need a way to compare your ensemble of predictions to that of the observations.  This can be done by first casting the obervations or predictions in the form of two histograms ($p$ and $o$) and then performing a calculation of the $\chi^{2}$ of these two histograms where
+\begin{displaymath}
+\chi^{2}=\displaystyle\sum_{i \in bins(p,o)} \frac{(p_{i}-o_{i})^2}{\sigma_{p_{i}}^{2}+\sigma_{o_{i}}^{2}}
+\end{displaymath}
+and ($p_{i}$, $o_{i}$) is the bin content of $p$ and $o$ at bin $i$ and($\sigma_{p_{i}}$, $\sigma_{o_{i}}$) are the corresponding errors on these bins.

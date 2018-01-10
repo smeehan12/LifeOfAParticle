@@ -49,10 +49,12 @@
 
 \textbf{How to Submit}
 \newline
-This assignment should be submitted by replying to the email sent out rby the tutors - \textbf{Use the online form!} - with the link to your GitHub repository.  Contained within this repository should be a \href{https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet}{markdown README.md} file which provides a guide to the contents of the repository, along with instructions of how to run the code, where necessary.  For some of the questions, you will need to write an extended answers (not just code), so your repository should also include your latex file and the compiled PDF document.  
+This assignment should be submitted by replying to the email sent out by the tutors - \textbf{Use the online form!} - with the link to your GitHub repository.  Contained within this repository should be a \href{https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet}{markdown README.md} file which provides a guide to the contents of the repository, along with instructions of how to run the code, where necessary.  For the full assignment, also include a well-written summary in the form of a latex document with one section per question.
 \newline
 \newline
-
+\textbf{YOU ARE TO SUBMIT YOUR OWN WORK} - Plagiarism will receive 0 credit.
+\newline
+\newline
 \textbf{Coding Like a \href{https://www.urbandictionary.com/define.php?term=hipster}{Hipster} - (Just Directions)} 
 \newline
 You don't need to do any work here, these are just directions.  
@@ -78,10 +80,9 @@ In addition to these operators, it is taken for granted in programming that you 
 In this quiz, these are the only things that may appear.   If you determine that you absolutely need some other function or operator, then include a comment clearly describing why this is the case.
 \newline
 \newline
-Finally, you are not allowed to ``hard code'' in your program, meaning that there cannot be code that you must manually change each time you run it.  An example of this is the length of a list.  If I have a list \textit{[1,4,2,5,3,6]}, and you want to use the number of items in the list in your code, then the number ``6'' may not appear in your code.  
+Finally, you are not allowed to ``hard code'' in your program, meaning that there cannot be code that you must manually change each time you run it.  An example of this is the length of a list.  If I have a list [1,4,2,5,3,6], and you want to use the number of items in the list in your code, then the number ``6'' may not appear in your code.  
 \newline
 \newline
-
 \newpage
 \textbf{Standard Deviation Like a Hipster}
 \newline
@@ -99,9 +100,42 @@ x_{avg}=\displaystyle\sum_{i=0}^{N-1} (x_{i})
 N=N(Q)
 \end{displaymath}
 \newline
+\textbf{NOTE!!!!}
+\newline
+For the following three ``hipster'' problems, choose one out of three to do.  That is, from the problems (Sorting, Dataset Correlation, Numerical Integration) choose to do only one for credit.  If you do one or both of the other two problem, they will count as \textit{BONUS}.
+\newline
+\newline
+\textbf{[1] Sorting Like a Hipster}
+\newline
+For this question, follow the directions to code like a ``hipster''.  
+\newline
+\newline
+Given this set of data (you can copy and paste it into an array if you like)
+\newline
+\newline
+[71, 51, 32, 62, 84, 109, 43, 92, 72, 41, 102, 80, 72, 69, 46, 94, 52, 95, 90, 72, 63, 70, 34, 80, 78, 34, 31, 37, 26, 41, 42, 107, 33, 108, 108, 75, 66, 23, 90, 53, 24, 70, 26, 41, 93, 24, 71, 39, 48, 66, 97, 107, 77, 71, 67, 39, 38, 107, 96, 92, 84, 46, 60, 95, 87, 90, 92, 63, 78, 78, 84, 107, 70, 108, 32, 36, 93, 108, 49, 72, 56, 43, 30, 56, 51, 97, 45, 92, 40, 43, 49, 83, 98, 28, 99, 97, 102, 89, 58, 87]
+\newline
+\newline
+write a program in python which sorts the data into an ascending array.  By this, I mean that the $0^{th}$ element in the list is the smallest, and the last element in the list is the largest.  If there is more than one element which has the same value, then the order of these two elements does not matter.  
+\newline
+\newline
+\textbf{[2] Dataset Correlation Like a Hipster}
+\newline
+For this question, follow the directions to code like a ``hipster''.  
+\newline
+\newline
+You are given a set of data in the format of $(x,y)$ pairs as can be found on the course website - \href{https://sites.google.com/a/aims.edu.gh/the-life-of-a-particle}{Course Website} - for assignment 2.  This data is formatted as
+\begin{displaymath}
+X=(x_0, x_1, x_2, ..., x_N) \textrm{  and  } Y=(y_0, y_1, y_2, ..., y_N)
+\end{displaymath}
+Given this dataset, calculate the ``linear correlation coefficient'' for this set of data as
+\begin{displaymath}
+\rho=\frac{V_{xy}}{\sigma_{x}\sigma_{y}} \textrm{  ,  } V_{xy}=E[xy]-\mu_{x}\mu_{y}
+\end{displaymath}
+where $E[xy]$ is the expectation value of the dataset $XY=(x_{0}y_{0}, x_{1}y_{1}, x_{2}y_{2}, ..., x_{N}y_{N})$ and $\mu$ and $\sigma$ are the standard deviation of the respective dataset.  I would recommend making a 2D histogram of this data in addition to doing some Googling about how to calculate the linear correlation coefficient as well.
 
 \newpage
-\textbf{Numerical Integration Like a Hipster} 
+\textbf{[3] Numerical Integration Like a Hipster} 
 \newline
 For this question, follow the directions to code like a ``hipster''.  Note that you can use the ROOT package to make histograms or graphs if you like.
 \newline
@@ -164,6 +198,11 @@ Use this procedure to determine the best fit values of the line which describes 
 \end{figure}
 
 \newpage
+\textbf{The Logistic Map} 
+\newline
+This is the completion of what we started in class.  You are to work through the exercise of creating code that reproduces the results in this paper - \href{http://dtic.mil/dtic/tr/fulltext/u2/a282268.pdf}{the logistic map paper}.  In short, you should be recreating the histograms in this paper that demonstrate the behavior of the sequence of $X$ values produced directly from the logistic map, and the sequence of $Y$ values that are produced from the transformed logistic map.  Use both one-dimensional and two-dimensional histograms to inspect the bias of both $X$ and $Y$. 
+\newline
+\newline
 \textbf{Gaussian Random Numbers} 
 \newline
 For this question, you may import the \href{https://docs.python.org/2/library/random.html}{python random library}.  However, you may only use the \href{https://docs.python.org/2/library/random.html#random.random}{random.random()} function call which generates a uniformly distributed random number between [0,1.0).
@@ -173,44 +212,9 @@ Starting from a set of uniformly distributed random numbers from [0,1.0) (Don't 
 \begin{displaymath}
  Gauss(x;\mu,\sigma)=\frac{1}{\sigma\sqrt{2\pi}}Exponential[-\frac{1}{2} (\frac{x-\mu}{\sigma})^{2}]
 \end{displaymath}
-where $Exponential[a]=e^{a}$
+where $Exponential[a]=e^{a}$.  Use the accept-reject method and limit the range of your generation to $x\in [-10,10]$.
 
-\newpage
-\textbf{Modelling the Particle In a Box} 
-\newline
-We discussed at great length the solution of the Schrodinger equation for the case of a particle in a one-dimensional box with sides at $x=$0 and $x=$a (Go review \href{http://www.fisica.net/mecanica-quantica/Griffiths\%20-\%20Introduction\%20to\%20quantum\%20mechanics.pdf}{Griffith's QM - Chapter 2.2} if you are not sure of how the calculation proceeds.).  This is the model by which we want to describe a particle, namely the answer to the question ``Where is the particle?''.  This will be done using the wave function $\Psi(x,t)$ of the particle, which itself may be complex valued as is composed as a linear superposition of the eigenfunctions 
-\begin{displaymath}
- \Psi(x,t)=\displaystyle\sum_{n=0}^{\infty} c_{n}  \phi_{n}(t)  \psi_{n}(x) = \displaystyle\sum_{n=0}^{\infty} c_{n}  e^{-\frac{i}{\hbar}E_{n}t} sin(\frac{n\pi}{a}x)
-\end{displaymath}
-However, the probability rule, which will be a function describing the PDF $P(x)$ of the location of the particle, must be a real valued function from which a single event (a single collapse of the wave function) can be viewed as the generation of a single number from this distribution $P(x)$.  Therefore, we must translate this complex function into a real-valued function.  Two reasonable ways to do this are as follows :
-\begin{itemize}
-\item Square Then Sum : Take the square modulus of each of the eigenfunctions and then add these squared terms.
-   \begin{itemize}
-     \item $P_{A}(x,t)=\displaystyle\sum_{n=0}^{\infty}  c_{n}  \phi_{n}(t)  \psi_{n}(x) c_{n}^{*}  \phi_{n}^{*}(t)  \psi_{n}^{*}(x) $
-   \end{itemize}
-\item Sum Then Square : Add the individual eigenfunctions and then take the square modulus of this sum.
-   \begin{itemize}
-     \item $P_{B}(x,t)=\displaystyle\sum_{n=0}^{\infty}  c_{n}  \phi_{n}(t)  \psi_{n}(x) \times \displaystyle\sum_{m=0}^{\infty}  c_{m}^{*}  \phi_{m}^{*}(t)  \psi_{m}^{*}(x)$
-   \end{itemize}
-\end{itemize}
 
-If you are feeling overwhelmed looking at these equations,its alright, we are going to deal with a simplified system.  Let's imagine that we know that the particle is initially placed in the box in a state $\Psi(x,t)$ which is only composed of the $E_1$ and $E_2$ eigenstates.  So the wave function is simply 
-\begin{displaymath}
-\Psi(x,t)=c_{1}\phi_{1}(t)\psi_{1}(x)+c_{2}\phi_{2}(t)\psi_{2}(x)
-\end{displaymath}
-First, describe how these two different possibly probability rules differ (if they do) qualitatively?  Is there time dependence to one of the probability rules?  What if you set $t=$0, meaning that the observation is made immediately after you put the particle in the box?  Does the time dependence go away?
-\newline
-\newline
-For this simplified system, you have been provided with a set of 5000 data measurements (included on the assignment page).  Your goal is to determine which one of these two probabily rule transformations $P_{A}$ or $P_{B}$ is the one that really occurs in nature.  To this end, you should probably start by examining the data, either by using descriptive statistics, or maybe making a histogram.  Can you observe anything about the data just from this?  Now try to generate a predictive set of data according to the two different models that you have for the probability, assuming that the measurements being made are performed immediately at $t=$0.  To fully describe the model, there are therefore two separate questions to answer
-\begin{itemize}[noitemsep]
-\item What is the probability rule that comes from nature?
-\item What are the coefficients $c_1$ and $c_2$? (To make things less involved, pretend that we know that $c_1$ and $c_2$ are positive and between [$0,1$].)
-\end{itemize}
-To go about this, we will need a way to compare your ensemble of predictions to that of the observations.  This can be done by first casting the obervations or predictions in the form of two histograms ($p$ and $o$) and then performing a calculation of the $\chi^{2}$ of these two histograms where
-\begin{displaymath}
-\chi^{2}=\displaystyle\sum_{i \in bins(p,o)} \frac{(p_{i}-o_{i})^2}{\sigma_{p_{i}}^{2}+\sigma_{o_{i}}^{2}}
-\end{displaymath}
-and ($p_{i}$, $o_{i}$) is the bin content of $p$ and $o$ at bin $i$ and($\sigma_{p_{i}}$, $\sigma_{o_{i}}$) are the corresponding errors on these bins.
 
 
 
