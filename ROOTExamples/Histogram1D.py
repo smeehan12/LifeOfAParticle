@@ -1,7 +1,7 @@
 ######################################
 # Sam Meehan 
 #
-# example of how to make a graph - more information found at
+# example of how to make a 1D histogram - more information found at
 # https://root.cern.ch/doc/v608/classTH1.html
 # https://root.cern.ch/doc/master/classTHistPainter.html
 # https://root.cern.ch/doc/master/classTAttLine.html
@@ -21,13 +21,6 @@ h = TH1F("h","h",10,0,5)
 h.Fill(1)
 h.Fill(1.2)
 h.Fill(2.1)
-
-# you can also fill in weighted events if need be
-h.Fill(3.1,4)
-
-# can also directly set the absolute value of the content of a bin
-h.SetBinContent(8,3.5)
-h.SetBinError(8,1.0)
 
 # change the style options of the graph
 h.SetLineColor( 2 )
@@ -52,7 +45,7 @@ c = TCanvas("c","c",200,200)
 h.Draw('hist')
 
 # save to output file valles example_hitogram.eps
-c.SaveAs("example_histogram.eps")
+c.SaveAs("example_histogram_1d.eps")
 
 # redraw the graph on the canvas with markers and error bars
 # by default, the error bars are
@@ -61,7 +54,7 @@ c.SaveAs("example_histogram.eps")
 h.Draw('pe')
 
 # save to output file valles example_histogram_error.eps
-c.SaveAs("example_histogram_error.eps")
+c.SaveAs("example_histogram_1d_error.eps")
 
 
 
