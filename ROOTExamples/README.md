@@ -13,3 +13,6 @@ How to make a 1-dimensional histogram
 
 ## Histogram2D.py
 How to make a 2-dimensional histogram
+
+## LoopOverHistogram.py
+Example of how to loop over a histogram to obtain the bin content and errors

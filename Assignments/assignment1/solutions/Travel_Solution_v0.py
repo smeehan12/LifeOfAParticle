@@ -29,7 +29,7 @@ def main():
     data_mean = hdata.GetMean()
         
     # value to test
-    n_mm_test = 20
+    n_mm_test = 10
     
     # start at distance of 0
     distance = 0
