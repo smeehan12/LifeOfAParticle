@@ -30,7 +30,7 @@ def main():
     data_mean = hdata.GetMean()
         
     # value to test
-    n_mm_test = 20
+    n_mm_test = 30
     
     # bookkeeping of distances in histogram
     hpred = TH1F("hpred","hpred",100,0,100)

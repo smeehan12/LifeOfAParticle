@@ -55,6 +55,37 @@ This assignment should be submitted by replying to the email sent out by the tut
 \textbf{You are to work with the group assigned to you by the tutors.}
 \newline
 \newline
+\textbf{Calculating $\pi$} 
+\newline
+\newline
+This question was started in class.  The aim is to calculate the value of $\pi$ using Monte Carlo integration.  Here is a brief review of the algorithm (which can be found on the internet in many places) :
+\begin{itemize}[noitemsep]
+\item Generate a large number $N$ of $(x,y)$ pairs that bound a quarter circle of radius $R$ in quadrant 1.
+\item Determine the fraction of these pairs that fall within the circle : $f_{in}=N_{in}/N$.
+\item Relate this fraction to the area of the circle ($A_{circle}=\frac{1}{4}\pi R^2$) compared to the area of the bounding box ($A_{box}=R^2$) as $f_{in}=A_{circle}/A_{box}=\frac{1}{4}\pi$
+\item Relate the value of $\pi$ directly to the fraction of points within the circle : $\pi=4f_{in}$
+\end{itemize}
+Now, the possible values of $f_{in}$ will depend on the initial number of points that were generated ($N$) and what we are interested in is knowing both how to calculated value of $\pi$, and the related statistical uncertainty, vary as $N$ is increased.
+\newline
+\newline
+To get a handle on this, calculate the value of $\pi$ some large number of times $M$ for a fixed value of $N$.  For each one of these $M$ calculations, store the value of $\pi$ that you determine.  After all $M$ calculations, determine the mean and standard deviation of this set of numbers (which can be visualized as a histogram).  You now have $\pi(N)$ and $\sigma_{\pi}(N)$.  Perform this procedure for increasing values of $N$.  How do these two values ($\pi(N)$ and $\sigma_{\pi}(N)$) evolve as $N$ increases.
+\newline
+\newline
+\textbf{The Classical Particle In a Box} 
+\newline
+\newline
+Before writing a simulation to describe the quantum particle in a box, it is important to be able to accurately describe the \textit{classical} particle in a box.  To do this, imagine the following experimental setup.  You place a particle in a box of width $a$ on the left side (at $x=$0) with some fixed velocity $v$ that will cause it to move towards the right.  You then immediately close your eyes.  When the particle reaches the right hand side, you know that it will immediately reverse direction and travel back to the left.  This process will continue with the particle bouncing from one side to the other for a time $T$ (with $T>>a/v$) at which point you open your eyes and note the current position $x$ of the particle.  This measurement constitutes one experiment.
+\begin{figure}[h!]
+  \center
+  \includegraphics[width=0.5\linewidth]{classical.png}
+  \caption{The experimental setup for one trial of the classical particle in a box.  The ball is released, it bounces back and forth a few times and after waiting a time $T$, you open your eyes and observe it at $x=x_{obs}$.}
+  \label{fig:riemann}
+\end{figure}
+Imagine that you repeat this same experiment many many times. What will be the distribution of the ensemble of $x_{obs}$ values?  Your task in this question is to design a simulation that produces this distribution.
+\newline
+\newline
+
+
 \textbf{Modelling the Particle In a Box} 
 \newline
 We discussed at great length the solution of the Schrodinger equation for the case of a particle in a one-dimensional box with sides at $x=$0 and $x=$a (Go review \href{http://www.fisica.net/mecanica-quantica/Griffiths\%20-\%20Introduction\%20to\%20quantum\%20mechanics.pdf}{Griffith's QM - Chapter 2.2} if you are not sure of how the calculation proceeds.).  This is the model by which we want to describe a particle, namely the answer to the question ``Where is the particle?''.  This will be done using the wave function $\Psi(x,t)$ of the particle, which itself may be complex valued as is composed as a linear superposition of the eigenfunctions 
@@ -95,7 +126,7 @@ To go about this, we will need a way to compare your ensemble of predictions to 
 and ($p_{i}$, $o_{i}$) is the bin content of $p$ and $o$ at bin $i$ and ($\sigma_{p_{i}}$, $\sigma_{o_{i}}$) are the corresponding errors on these bins.  When creating a histogram of the number of events in a bin ($N_{i}$), the ROOT package will automatically set the error on the bin to be the square root of this value ($\sqrt{N_{i}}$).  This is on account of the fact that the number of events in a bin is viewed as a poisson observable.  That is, if you were to run the simulation again and again, each time obtain another count of events in bin $i$, and you were to make a histogram of these values, then it would follow a poisson distribution of mean $N$ and standard deviation $\sqrt{N}$ (\textit{BONUS} points if you do this and justify the error being $\sqrt{N}$. 
 \newline
 \newline
-\textbf{Modelling a \textbf{Real Life} Particle In a Box - \textit{Bonus}} 
+\textbf{Modelling a \textbf{Real Life} Particle In a Box - \textit{Bonus/Optional}} 
 \newline
 This problem builds upon the previous problem to incorporate effects of a real particle detector.  You will again be given a set of data, with the goal to measure the $c_1$ and $c_2$ coefficients.  Hopefully you have discovered the probability rule from the previous question so that will not be necessary again.  The challenge this time will be to properly take into account detector effects.
 \newline
